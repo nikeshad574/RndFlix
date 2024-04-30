@@ -18,3 +18,15 @@
     --accent: 8 94% 39%;
   }
 }
+
+@layer components {
+  .selectContainer {
+    @apply flex items-center justify-center gap-1 px-2 py-2 bg-accent/90 rounded-md text-white font-bold tracking-widest text-lg transition hover:shadow-lg hover:shadow-accent/20;
+  }
+  .selectInActive {
+    @apply cursor-pointer text-white min-w-20 px-2 rounded-md text-center;
+  }
+  .selectActive {
+    @apply cursor-pointer text-accent bg-white min-w-20 px-2 rounded-md text-center;
+  }
+}
