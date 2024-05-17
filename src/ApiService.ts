@@ -24,8 +24,6 @@ export const getRndItem = async (
   const res = await fetch(url);
   const data = await res.json();
 
-  console.log(data);
-
   const randomItem = Math.floor(
     Math.random() * (0 - data.result.items.length) + data.result.items.length
   );

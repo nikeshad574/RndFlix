@@ -30,7 +30,11 @@ function App() {
       <nav className="fixed top-0 left-0 w-full px-2 h-12 border-b-[1px] border-slate-300 flex items-center justify-between bg-slate-50 ">
         <h1 className="text-3xl font-bold text-primary/90">R</h1>
 
-        <a href="#" target="_blank" className="underline hover:text-primary/90">
+        <a
+          href="https://github.com/nikeshad254"
+          target="_blank"
+          className="underline hover:text-primary/90"
+        >
           Github: nikeshad254
         </a>
       </nav>
@@ -101,7 +105,11 @@ function App() {
       )}
 
       <footer className="mt-6 text-center p-2 bg-black text-white">
-        Made with love by <a href="#">Nikesh Adhikari ❤️</a> . &copy; 2024
+        Made with love by{" "}
+        <a href="https://github.com/nikeshad254" target="_blank">
+          Nikesh Adhikari ❤️
+        </a>{" "}
+        . &copy; 2024
       </footer>
     </>
   );
