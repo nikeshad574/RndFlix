@@ -91,7 +91,7 @@ function App() {
             {item.type} - {item.title}
           </h3>
           <iframe
-            src={item.embed_url_imdb}
+            src={item.embed_url_tmdb || item.embed_url_imdb}
             className="w-full aspect-video p-2 md:max-w-[600px] lg:max-w-[900px]"
             allowFullScreen
           ></iframe>

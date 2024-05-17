@@ -16,12 +16,18 @@ export const getRndItem = async (
   type: ItemType,
   sortType: SortType
 ): Promise<ResponseItem> => {
-  const page = Math.floor(Math.random() * (1 - 1500) + 1500);
-  const randomItem = Math.floor(Math.random() * (0 - 14) + 14);
+  const max = type === "movie" ? 1000 : 500;
+  const page = Math.floor(Math.random() * (1 - max) + max);
 
   const url = `${api}/${type}/${sortType}/${page}`;
 
   const res = await fetch(url);
   const data = await res.json();
+
+  console.log(data);
+
+  const randomItem = Math.floor(
+    Math.random() * (0 - data.result.items.length) + data.result.items.length
+  );
   return data.result.items[randomItem];
 };
