@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { ItemType, ResponseItem, SortType, getRndItem } from "./ApiService";
+import { ItemType, ResponseItem, getRndItem } from "./ApiService";
 
 function App() {
-  const [type, setType] = useState<ItemType>("movie");
-  const [sortType, setSortType] = useState<SortType>("new");
+  const [type, setType] = useState<ItemType>("movies");
   const [rnd, setRnd] = useState<boolean>(false);
 
   const [item, setItem] = useState<ResponseItem | undefined>();
@@ -13,7 +12,7 @@ function App() {
     async function getItem() {
       try {
         setLoading(true);
-        const item = await getRndItem(type, sortType);
+        const item = await getRndItem(type, "latest");
         setItem(item);
       } catch (err) {
         console.error(err);
@@ -31,7 +30,7 @@ function App() {
         <h1 className="text-3xl font-bold text-primary/90">R</h1>
 
         <a
-          href="https://github.com/nikeshad254"
+          href="https://github.com/nikeshad574"
           target="_blank"
           className="underline hover:text-primary/90"
         >
@@ -49,33 +48,17 @@ function App() {
       <section className="mt-4 px-2 flex flex-col gap-2 sm:flex-row sm:gap-8  items-center justify-center">
         <div className="selectContainer">
           <p
-            className={type === "movie" ? "selectActive" : "selectInActive"}
-            onClick={() => setType("movie")}
+            className={type === "movies" ? "selectActive" : "selectInActive"}
+            onClick={() => setType("movies")}
           >
             Movie
           </p>
           <span />
           <p
-            className={type === "tv" ? "selectActive" : "selectInActive"}
-            onClick={() => setType("tv")}
+            className={type === "tvshows" ? "selectActive" : "selectInActive"}
+            onClick={() => setType("tvshows")}
           >
             TV
-          </p>
-        </div>
-
-        <div className="selectContainer">
-          <p
-            className={sortType === "new" ? "selectActive" : "selectInActive"}
-            onClick={() => setSortType("new")}
-          >
-            New
-          </p>
-          <span />
-          <p
-            className={sortType === "add" ? "selectActive" : "selectInActive"}
-            onClick={() => setSortType("add")}
-          >
-            Added
           </p>
         </div>
 
@@ -95,7 +78,7 @@ function App() {
             {item.type} - {item.title}
           </h3>
           <iframe
-            src={item.embed_url_tmdb || item.embed_url_imdb}
+            src={item.embed_url_tmdb || item.embed_url}
             className="w-full aspect-video p-2 md:max-w-[600px] lg:max-w-[900px]"
             allowFullScreen
           ></iframe>
@@ -106,7 +89,7 @@ function App() {
 
       <footer className="mt-6 text-center p-2 bg-black text-white">
         Made with love by{" "}
-        <a href="https://github.com/nikeshad254" target="_blank">
+        <a href="https://github.com/nikeshad574" target="_blank">
           Nikesh Adhikari ❤️
         </a>{" "}
         . &copy; 2024
